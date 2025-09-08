@@ -1,4 +1,13 @@
-const apiBase = location.port === "3000" ? "" : "http://127.0.0.1:3000";
+const API_PROD = "https://json-placeholder1.onrender.com";
+const API_LOCAL = "http://127.0.0.1:3000";
+const isLocalhost = ["localhost", "127.0.0.1", "::1"].includes(
+  location.hostname
+);
+const apiBase = isLocalhost
+  ? location.port === "3000"
+    ? ""
+    : API_LOCAL
+  : API_PROD;
 
 const qs = (s) => document.querySelector(s);
 const qsa = (s) => Array.from(document.querySelectorAll(s));
@@ -54,7 +63,8 @@ async function loadPosts() {
 
 // Users
 async function loadUsers() {
-  qs("#users-list").innerHTML = '<div class="card">Foydalanuvchilar kutilmoqda...</div>';
+  qs("#users-list").innerHTML =
+    '<div class="card">Foydalanuvchilar kutilmoqda...</div>';
   try {
     const users = await fetchJSON("/users");
     const search = qs("#search-users").value.trim().toLowerCase();
