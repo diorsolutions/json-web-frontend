@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>JSONPlaceholder UI</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="app-header">
+      <h1>JSONPlaceholder Dashboard</h1>
+      <p class="subtitle">Pretty UI Qo'ldan kelgancha</p>
+    </header>
+
+    <nav class="tabs">
+      <button class="tab active" data-tab="posts">Postlar</button>
+      <button class="tab" data-tab="users">Foydalanuvchilar</button>
+      <button class="tab" data-tab="todos">Todolar ro'yxati</button>
+    </nav>
+
+    <main>
+      <section id="posts" class="panel visible">
+        <div class="panel-header">
+          <h2>Posts</h2>
+          <div class="actions">
+            <button id="refresh-posts" class="btn">Yangilash</button>
+            <input
+              id="search-posts"
+              class="input"
+              type="search"
+              placeholder="Search posts..."
+            />
+          </div>
+        </div>
+        <div id="posts-list" class="grid"></div>
+      </section>
+
+      <section id="users" class="panel">
+        <div class="panel-header">
+          <h2>Users</h2>
+          <div class="actions">
+            <button id="refresh-users" class="btn">Yangilash</button>
+            <input
+              id="search-users"
+              class="input"
+              type="search"
+              placeholder="Search users..."
+            />
+          </div>
+        </div>
+        <div id="users-list" class="grid"></div>
+      </section>
+
+      <section id="todos" class="panel">
+        <div class="panel-header">
+          <h2>Todolar</h2>
+          <div class="actions">
+            <button id="refresh-todos" class="btn">Yangilash</button>
+            <label class="checkbox"
+              ><input type="checkbox" id="hide-completed" /> Tugallanganlarni
+              yashirish</label
+            >
+          </div>
+        </div>
+        <div id="todos-list" class="grid"></div>
+      </section>
+    </main>
+
+    <footer class="app-footer">
+      Shu oddiy app uchun 5.4 soat vaqt ketdi (kamiga responsive)
+    </footer>
+
+    <script src="./app.js" defer></script>
+  </body>
+</html>
